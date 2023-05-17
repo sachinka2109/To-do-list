@@ -1,0 +1,25 @@
+th,td {
+    text-align: center;
+}
+
+.title {
+    white-space: nowrap;
+}
+
+.btn.btn-light 
+
+.note {
+    overflow: hidden;
+    max-width: 38px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.date {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.actions {
+    white-space: nowrap;
+}

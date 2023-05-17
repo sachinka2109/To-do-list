@@ -1,0 +1,43 @@
+<div class="container">
+  <button class="btn btn-primary my-2" (click)="onAdd()">Add Item</button>
+  <router-outlet></router-outlet>
+  <div>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>Task</th>
+        <th class="d-none d-md-table-cell">Note</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody *ngFor="let item of items;let i =index">
+      <tr>
+        <td>{{i+1}}</td>
+        <td>{{item.title | titlecase}}</td>
+        <td class="d-none d-md-table-cell note">
+          {{item.note}}
+        </td>
+        <td class="date">{{item.date | date:'shortDate'}}</td>
+        <td [ngStyle]="{'color':item.isCompleted? 'green' : 'red' }">
+          <span>{{item.isCompleted? "Completed" : "Not Completed"}}</span>
+        </td>
+        <td class="actions">
+          <a class="btn btn-light" type="button" [routerLink]="['/details/',i]">
+            <i class="far fa-eye"></i>
+          </a>
+          <button class="btn btn-light" type="button" (click)="onDeleteItem(i)">
+            <i class="far fa-trash-alt"></i>
+          </button>
+          <button class="btn btn-light d-none d-lg-table-cell" [routerLink]="['/',i,'edit']">
+            <i class="far fa-edit"></i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

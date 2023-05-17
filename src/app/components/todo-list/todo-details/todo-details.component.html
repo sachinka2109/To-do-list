@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <div class="d-flex align-items-center">
+                <h4 class="me-auto">{{item.title}}</h4>
+                <span class="text-muted">{{item.date | date:'medium'}}</span>
+                <button class="btn btn-primary mx-1" [routerLink]="['/',id,'edit']">Edit</button>
+                <button class="btn btn-success mx-1" (click)="onMarkComplete()">{{item.isCompleted?'Mark as not Completed' : 'Mark as Completed'}}</button>
+                <button class="btn btn-danger mx-1" (click)="onDeleteItem()">Delete Task</button>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="d-flex">
+                <h5 class="card-title me-auto">Note</h5>
+            </div>
+            <pre class="card-text">{{item.note}}</pre>
+        </div>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,60 @@
+<div class="row mx-5">
+    <div class="col-xs-12 col-md-6 col-md-offset-2">
+        <!-- <div class="alert alert-danger" role="alert" *ngIf="error">
+            {{error}}
+        </div> -->
+        <!-- <app-alert [message]="error" *ngIf="error" (close)="onHandleError()"></app-alert> -->
+        <!-- <ng-template  appPlaceholder></ng-template> -->
+        <form #authForm='ngForm' (ngSubmit)="onSubmitForm(authForm)">
+            <div class="form-group">
+                <ng-container *ngIf="!isLoginMode">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" ngModel id="username" name="username" required>
+                </ng-container>
+                <label for="email">Email</label>
+                <input 
+                    type="email" 
+                    class="form-control" 
+                    ngModel
+                    id="email"
+                    name="email"
+                    required 
+                    autocomplete="off"
+                >
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input 
+                    type="password" 
+                    class="form-control" 
+                    ngModel
+                    id="password"
+                    name="password"
+                    required
+                    autocomplete="off"
+                    [minlength]="6"
+                >
+            </div>
+            <ng-container *ngIf="!isLoginMode">
+                <div class="form-group">
+                    <label for="confirmpassword">Confirm Password</label>
+                    <input 
+                        type="password" 
+                        class="form-control" 
+                        ngModel
+                        id="confirmpassword"
+                        name="confirmpassword"
+                        required
+                        autocomplete="off"
+                    >
+                </div>
+            </ng-container>
+            <div class="my-3">
+                <button class="btn btn-primary" type="submit" [disabled]="!authForm.valid">{{isLoginMode? 'Login' : 'Signup'}}</button> |
+                <button class="btn btn-primary" type="button" (click)="onSwitchMode()">
+                    {{isLoginMode ? "Signup" : "Login"}}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<form [formGroup]="itemForm" class="container" (ngSubmit)="onSubmit()">
+    <div class="card">
+        <div class="card-header">
+            <div class="d-flex align-items-center">
+                <div class="col">
+                    <input placeholder="Title" type="text" class="form-control" formControlName="title">
+                </div>
+                <button class="btn btn-primary mx-1" type="submit" [disabled]="!itemForm.valid">Update</button>
+                <button class="btn btn-danger mx-1" (click)="onCancel()">Cancel</button>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="d-flex">
+                <h5 class="card-title me-auto">Note</h5>
+            </div>
+            <textarea type="text" placeholder="Note" class="form-control" formControlName="note"></textarea>
+        </div>
+    </div>
+</form>

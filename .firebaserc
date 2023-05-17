@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "fir-crud-e248e": {
+      "hosting": {
+        "to-do-list": [
+          "fir-crud-e248e"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "fir-crud-e248e"
+  }
+}

@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-md bg-body-tertiary">
+    <div class="container-fluid">
+      <div class="navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <div class="btn-group">
+              <a class="btn btn-outline-success" [routerLink]="['list']" routerLinkActive="active">All List</a>
+              <ng-container *ngIf="authService.currentUser$ | async as user;else Login">
+                <div class="dropdown btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fa fa-user mx-1"></i>{{user.displayName}}
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" (click)="onSaveTask()">Save Task</a></li>
+                    <li><a class="dropdown-item" (click)="onFetchTask()">Fetch Task</a></li>
+                    <li><a class="dropdown-item btn btn-outline-danger" (click)="Logout()">Logout</a></li>
+                  </ul>
+                </div>
+              </ng-container>
+              <ng-template #Login>
+                <button class="btn btn-outline-primary" routerLink="login" routerLinkActive="active">Login</button>
+              </ng-template>
+            </div>  
+        </ul>
+      </div>
+    </div>
+</nav>
